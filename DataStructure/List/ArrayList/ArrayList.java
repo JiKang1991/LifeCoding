@@ -61,9 +61,69 @@ public class ArrayList {
 			if(i < size - 1) {
 				str += ", ";
 			}
-		}
-		
+		}		
 		return str + "]";
 	}
 	
+	/*
+	 * 매개변수로 전달받은 'index'에 해당하는 인덱스를 가진 element를 삭제하는 메소드입니다.
+	 * ('index'보다 큰 인덱스를 가지고 있던 기존의 element들은 인덱스가 1씩 감소합니다.)
+	 */
+	public Object remove(int index) {
+		Object removed = elementData[index];
+		for(int i = index + 1; i <= size - 1; i++) {
+			elementData[i - 1] = elementData[i];
+		}
+		size--;
+		elementData[size] = null;
+		return removed;
+	}
+	
+	/**
+	 * 첫 번째 element를 삭제하는 메소드입니다.
+	 * (모든 element들은 기존의 인덱스에 1을 뺀 인덱스를 가지게 됩니다. 즉, 앞으로 당겨지게 됩니다.)
+	 */
+	public Object removeFirst() {
+		return remove(0);
+	}
+	
+	/**
+	 * 마지막 element를 삭제하는 메소드입니다.
+	 */
+	public Object removeLast() {
+		return remove(size - 1);
+	}
+	
+	/**
+	 * 매개변수로 전달받은 'index'에 해당하는 인덱스를 가진 element의 값을 리턴하는 메소드 입니다.
+	 */
+	public Object get(int index) {
+		return elementData[index];
+	}
+	
+	/**
+	 * element의 개수를 리턴하는 메소드입니다.
+	 */
+	public int size() {
+		return size;
+	}
+	
+	/**
+	 * 매개변수로 전달받은 'value'에 해당하는 값을 가진 element의 인덱스를 리턴하는 메소드입니다.
+	 */
+	public int[] indexOf(Object value) {
+		int[] tempArr = new int[size];
+		int count = 0;
+		for(int i = 0; i <= size - 1; i++) {
+			if(value.equals(elementData[i])) {
+				count++;
+				tempArr[count - 1] = i;
+			}
+		}		
+		int[] indexArr = new int[count];
+		for(int i = 0; i < count; i++) {
+			indexArr[i] = tempArr[i];
+		}
+		return indexArr;
+	}
 }
