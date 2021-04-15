@@ -91,6 +91,24 @@ public class Main {
 		System.out.print("numbers.indexOf(60); -> ");
 		printArray(numbers.indexOf(60));
 		
+		//---------------------------------------------------------------------------
+		// ArrayList 객체(numbers)의 반복적인 작업을 처리하기 위해서는 ListIterator 객체가 필요합니다.
+		// ListIterator 객체를 리턴받기 위해서 listIterator()를 사용합니다.
+		// ListIterator는 ArrayList에 포함되어있는 클래스입니다.
+		ArrayList.ListIterator li = numbers.listIterator();
+		
+		// hasNext()는 next()로 리턴된 element의 다음 element가 null이면 false null이 아니면 true를 리턴합니다.
+		while(li.hasNext()) {
+			// next()가 호출되면 ListIterator 객체의 요소가 순차적으로 리턴됩니다. 
+			// 5, 15, 5, 20, 5, 30, 5
+			System.out.println(li.next());
+		}
+		
+		
+		
+		
+		
+		
 		
 	}
 	

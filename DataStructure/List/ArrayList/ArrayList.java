@@ -126,4 +126,20 @@ public class ArrayList {
 		}
 		return indexArr;
 	}
+	public ListIterator listIterator() {
+		return new ListIterator();
+	}
+	
+	class ListIterator {
+		private int nextIndex = 0;
+		
+		public boolean hasNext() {
+			// return (elementData[nextIndex + 1] != null) ? true : false;
+			return nextIndex < size();
+		}
+		
+		public Object next() {
+			return elementData[nextIndex++];
+		}
+	}
 }
