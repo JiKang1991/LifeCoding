@@ -141,5 +141,17 @@ public class ArrayList {
 		public Object next() {
 			return elementData[nextIndex++];
 		}
+		
+		// nextIndex()가 0인 상태에서 previous()가 실행되면 -1의 인덱스에 해당하는
+		// 엘리먼트를 호출하게 되고 이는 outOfIndex 에러를 호출하게됩니다.
+		// 이를 방지하기 위해 nextIndex가 0보다 클때만 true를 리턴하고 0보다 작으면 false를 리턴합니다.
+		
+		public boolean hasPrevious() {
+			return nextIndex > 0;
+		}
+		
+		public Object previous() {
+			return elementData[--nextIndex];
+		}
 	}
 }

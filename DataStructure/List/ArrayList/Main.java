@@ -101,12 +101,20 @@ public class Main {
 		while(li.hasNext()) {
 			// next()가 호출되면 ListIterator 객체의 요소가 순차적으로 리턴됩니다. 
 			// 5, 15, 5, 20, 5, 30, 5
-			System.out.println(li.next());
+			System.out.print(li.next() + " ");			
 		}
 		
+		System.out.println();
 		
+		// 위의 반복문으로 인해 현재 li객체 내부의 인덱스는 마지막 엘리먼트의 인덱스 + 1입니다.
 		
+		// hasPrevious()는 li 객체 내부의 인덱스가 가리키는 엘리먼트
 		
+		while(li.hasPrevious()) {
+			// previous()는 li 객체 내부의 인덱스가 가리키는 엘리먼트 이전의 엘리먼트를 순차적으로 호출합니다.
+			// 5, 30, 5, 20, 5, 15, 5
+			System.out.print(li.previous() + " ");	
+		}
 		
 		
 		
