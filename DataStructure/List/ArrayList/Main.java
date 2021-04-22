@@ -1,4 +1,4 @@
-package list.arraylist.implemation;
+package list.arraylist.implementation;
 
 public class Main {
 
@@ -115,8 +115,30 @@ public class Main {
 			// 5, 30, 5, 20, 5, 15, 5
 			System.out.print(li.previous() + " ");	
 		}
+		System.out.println();
 		
+		while(li.hasNext()) {
+			int number = (int)li.next();
+			if(number == 30) {
+				li.add(35);
+			}
+			System.out.print(number + " ");
+		}
+		System.out.println("\n" + numbers);
 		
+		 
+		while(li.hasPrevious()) {
+			li.previous();
+		}
+		
+		while(li.hasNext()) {
+			int number = (int)li.next();
+			if(number == 30) {
+				li.remove();
+			}
+			System.out.print(number + " ");
+		}
+		System.out.println("\n" + numbers);
 		
 	}
 	

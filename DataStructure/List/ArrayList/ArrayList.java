@@ -1,4 +1,4 @@
-package list.arraylist.implemation;
+package list.arraylist.implementation;
 /**
  * ArrayList 클래스를 정의하는 예제
  * @author jikang
@@ -152,6 +152,18 @@ public class ArrayList {
 		
 		public Object previous() {
 			return elementData[--nextIndex];
+		}
+		
+		public void add(Object value) {
+			ArrayList.this.add(nextIndex, value);
+		}
+		
+		public void remove() {
+			ArrayList.this.remove(nextIndex - 1);
+			// ListIterator의 remove()는 hasNext()와 next()를 호출한 후 활용해야 하는 메소드 입니다.
+			// next()로 인해 nextIndex가 ++연산되었습니다. nextIndex-- 연산을 통해 값을 삭제한 인덱스의
+			// 신규 값을 next()로 재 확인 하도록 합니다.
+			nextIndex--;
 		}
 	}
 }
